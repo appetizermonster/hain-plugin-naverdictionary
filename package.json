@@ -1,0 +1,26 @@
+{
+  "name": "hain-plugin-naverdictionary",
+  "version": "0.0.1",
+  "description": "Hain Plugin for Naver Dictionary",
+  "main": "index.js",
+  "keywords": [
+    "hain-0.1.0"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appetizermonster/hain-plugin-naverdictionary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/appetizermonster/hain-plugin-naverdictionary/issues"
+  },
+  "homepage": "https://github.com/appetizermonster/hain-plugin-naverdictionary#readme",
+  "scripts": {},
+  "author": "Heejin Lee <monster@teamappetizer.com>",
+  "license": "MIT",
+  "hain": {
+    "prefix": "?",
+    "usage": "?hello",
+    "icon": "./naver_dict.png",
+    "group": "Naver Dictionary"
+  }
+}

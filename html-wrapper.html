@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+  <style type="text/css">
+    body, div, span, a {
+      font-family: Arial, '돋움';
+      font-size: 10pt;
+      line-height: 155%;
+      color: #333;
+    }
+    h3 {
+      line-height: 120%;
+    }
+    .t2 {
+      padding: 2px;
+      font-weight: normal;
+    }
+    .t1 a {
+      font-size: 13pt;
+      font-weight: 200;
+    }
+    #pron_en {
+      padding: 5px;
+    }
+    span.fnt_k28 {
+      background: #9ccc65;
+      border-radius: 5px;
+      padding: 5px;
+      color: white;
+    }
+    dd {
+      -webkit-margin-start: 20px;
+      color: #555;
+    }
+    a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>%body%</body>
+<script>
+  const links = document.querySelectorAll('a');
+  for (let i = 0; i < links.length; ++i) {
+    const link = links[i];
+    const href = link.getAttribute('href');
+    if (href && href.startsWith('/en')) {
+      link.setAttribute('href', `http://endic.naver.com${href}`);
+      link.setAttribute('target', '_blank');
+    }
+    
+    const playlist = link.getAttribute('playlist');
+    if (playlist) {
+      link.addEventListener('click', function (evt) {
+        const _playlist = this.getAttribute('playlist');
+        const audio = new Audio(_playlist);
+        audio.play();        
+      });
+    }
+  }
+</script>
+</html>
