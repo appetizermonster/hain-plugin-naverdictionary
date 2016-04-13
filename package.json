@@ -22,5 +22,8 @@
     "usage": "?hello",
     "icon": "./naver_dict.png",
     "group": "Naver Dictionary"
+  },
+  "dependencies": {
+    "got": "^6.3.0"
   }
 }
