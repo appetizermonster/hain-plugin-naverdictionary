@@ -1,8 +1,20 @@
 'use strict';
 
+const lo_take = require('lodash.take');
 const got = require('got');
 const fs = require('fs');
 const path = require('path');
+
+function fetchWords(query) {
+  const query_enc = encodeURIComponent(query);
+  const url = `http://ac.endic.naver.com/ac?q=${query_enc}&q_enc=utf-8&st=11001&r_format=json&r_enc=utf-8&r_lt=10001&r_unicode=0&r_escape=1`;
+  return got(url).then((res) => {
+    const dict = JSON.parse(res.body);
+    const items = dict.items;
+    const words = lo_take(items[0], 5);
+    return words;
+  });
+}
 
 function fetchDictionary(word) {
   const query = encodeURIComponent(word);
@@ -28,11 +40,16 @@ module.exports = (context) => {
       return;
     }
     const query_lower = query.toLowerCase();
-    res.add({
-      id: query_lower,
-      title: query,
-      desc: 'from Naver.com',
-      preview: true
+    fetchWords(query_lower).then((words) => {
+      const results = words.map((x) => {
+        return {
+          id: x[0][0],
+          title: x[0][0],
+          desc: x[1][0],
+          preview: true
+        };
+      });
+      res.add(results);
     });
   }
 
