@@ -46,6 +46,7 @@ module.exports = (context) => {
           id: x[0][0],
           title: x[0][0],
           desc: x[1][0],
+          redirect: `?${x[0][0]}`,
           preview: true
         };
       });
