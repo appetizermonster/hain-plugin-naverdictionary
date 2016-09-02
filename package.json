@@ -1,6 +1,6 @@
 {
   "name": "hain-plugin-naverdictionary",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Hain Plugin for Naver Dictionary",
   "main": "index.js",
   "keywords": [
