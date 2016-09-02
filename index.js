@@ -65,7 +65,8 @@ module.exports = (context) => {
 
   function renderPreview(id, payload, render) {
     fetchDictionary(id).then((body) => {
-      render(html.replace('%body%', body));
+      const filteredBody = body.replace('<span class="fnt_k28"></span>', '');
+      render(html.replace('%body%', filteredBody));
     });
   }
 
